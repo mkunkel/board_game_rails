@@ -5,9 +5,13 @@ gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'foundation-rails'
+gem 'haml-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'devise'
+gem 'simple_form'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -22,6 +26,11 @@ group :test, :development do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'nyan-cat-formatter'
+  gem 'letter_opener'
+end
+
+group :test do
+  gem 'email_spec'
 end
 
 # Use ActiveModel has_secure_password

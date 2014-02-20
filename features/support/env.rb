@@ -12,8 +12,8 @@ require 'cucumber/rails'
 # Capybara.default_selector = :xpath
 
 # By default, any exception happening in your Rails application will bubble up
-# to Cucumber so that your scenario will fail. This is a different from how 
-# your application behaves in the production environment, where an error page will 
+# to Cucumber so that your scenario will fail. This is a different from how
+# your application behaves in the production environment, where an error page will
 # be rendered instead.
 #
 # Sometimes we want to override this default behaviour and allow Rails to rescue
@@ -22,7 +22,9 @@ require 'cucumber/rails'
 # There are two ways to allow Rails to rescue exceptions:
 #
 # 1) Tag your scenario (or feature) with @allow-rescue
-#
+## Make sure this require is after you require cucumber/rails/world.
+require 'email_spec' # add this line if you use spork
+require 'email_spec/cucumber'
 # 2) Set the value below to true. Beware that doing this globally is not
 # recommended as it will mask a lot of errors for you!
 #
