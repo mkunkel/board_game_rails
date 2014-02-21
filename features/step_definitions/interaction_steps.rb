@@ -59,3 +59,8 @@ end
 When (/^I upload a file with an invalid extension$/) do
   attach_file(:image_url, '../support/files/cat.txt')
 end
+
+Then(/^I should see (\d+) ([^"]*)s$/) do |arg1, arg2|
+  puts arg1
+  puts arg2
+end
