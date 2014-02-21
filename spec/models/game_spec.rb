@@ -38,9 +38,12 @@ describe Game do
     it { should validate_presence_of(:min_players) }
     it { should validate_presence_of(:max_players) }
     it { should validate_presence_of(:playing_time) }
+    it { should validate_numericality_of(:min_players) }
+    it { should validate_numericality_of(:max_players) }
+    it { should validate_numericality_of(:playing_time) }
     it { should validate_uniqueness_of(:name) }
 
-    let(:game) { game }
+    let(:game) { Fabricate(:game) }
     it 'should validate that min players is less than max players (vice versa)' do
       game.max_players = 1
       game.save
