@@ -19,6 +19,24 @@ describe Game do
     it { should have_many(:plays) }
   end
 
+  context 'scopes' do
+    let(:game) { Fabricate(:game) }
+    let(:player) { Fabricate(:player) }
+
+    describe '.played_by_player' do
+      it 'should return games that have been played by a given player' do
+        # binding.pry
+        player.plays << Play.create(game_id: game.id)
+        expect(Game.played_by_player(player)).to include(game)
+      end
+
+      it 'should not return games that have not been played by a given player' do
+        player.plays.destroy_all
+        expect(Game.played_by_player(player)).to be_empty
+      end
+    end
+  end
+
   context 'class methods' do
     describe '#save' do
       it 'should save a valid game to the database' do

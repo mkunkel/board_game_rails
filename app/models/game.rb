@@ -5,7 +5,12 @@ class Game < ActiveRecord::Base
   validate :min_players_less_than_or_equal_to_max_players
 
   has_many :plays
-  has_many :friends, through: :plays
+  has_many :players
+
+  scope :played_by_player, lambda { |f| f.games }
+  scope :not_played_by_player, lambda { |f| all - f.games }
+  scope :not_played_by_player, lambda { |fs| all - fs.map{|x| x.games}.flatten }
+  scope :by_number_of_players, lambda { |num| where("#{num} BETWEEN min_players AND max_players") }
 
   private
 
