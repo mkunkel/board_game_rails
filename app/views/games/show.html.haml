@@ -1,1 +1,10 @@
-%h3 Show Game
+.row
+  .small-12.columns
+    %h3 Show Game
+    = @game.name
+.row
+  .small-5.columns
+    = players_string @game
+  .small-5.columns.small-offset-2
+    = play_time_to_string @game.playing_time
+

@@ -15,6 +15,7 @@ Feature: Home Page
     Given the following user:
       | username              | joe             |
       | email                 | joe@example.com |
+    Given a set of 3 games in collection
     When I go to the homepage
     And I follow "Sign In"
     And I fill in "joe@example.com" for "Email / Username"

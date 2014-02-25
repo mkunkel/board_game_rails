@@ -6,6 +6,7 @@ class Game < ActiveRecord::Base
 
   has_many :plays
   has_many :players
+  has_and_belongs_to_many :users
 
   scope :played_by_player, lambda { |f| f.games }
   scope :not_played_by_player, lambda { |f| all - f.games }
