@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'rails_12factor', group: :production
 gem 'simple_form'
+gem 'i18n', github: 'svenfuchs/i18n'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -21,7 +22,7 @@ end
 
 group :test, :development do
   gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
+  gem "database_cleaner", git: 'https://github.com/bmabey/database_cleaner.git'
   gem 'fabrication'
   gem 'pry'
   gem 'rspec'

@@ -22,6 +22,13 @@ Given(/^a set of (\d+) games$/) do |num|
   end
 end
 
+Given(/^a set of (\d+) games in collection$/) do |num|
+  num.to_i.times do
+    Fabricate(:games_user)
+    Fabricate(:game)
+  end
+end
+
 Then(/^I should see (\d+) plays$/) do |num|
   page.should have_css(".game-play", count: num)
 end

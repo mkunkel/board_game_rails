@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :player
+  has_and_belongs_to_many :games
 
   def self.find_for_database_authentication(conditions)
     self.where(:username => conditions[:email]).first || self.where(:email => conditions[:email]).first
