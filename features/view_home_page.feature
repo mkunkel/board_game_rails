@@ -2,11 +2,14 @@ Feature: Home Page
 
 
   Scenario: User views the home page without signing in
+    Given a set of 6 plays
+    Given a set of 6 players
+    Given a set of 6 games
     When I go to the homepage
     Then I should see "Sign In"
     And I should see "Sign Up"
     And I should see "Recently Played Games"
-    And I should see 6 games
+    And I should see 6 plays
 
   Scenario: Signed in user views the home page
     Given the following user:
