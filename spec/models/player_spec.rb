@@ -4,6 +4,14 @@ describe Player do
 
   end
 
+  context 'attributes' do
+    it { should have_db_column(:name) }
+  end
+
+  context 'associations' do
+    it { should have_and_belong_to_many(:plays) }
+  end
+
   context 'class methods' do
 
   end
@@ -12,5 +20,10 @@ describe Player do
     describe 'valid?' do
 
     end
+  end
+
+  context 'validations' do
+    it { should validate_presence_of(:name) }
+    it { should validate_uniqueness_of(:name) }
   end
 end

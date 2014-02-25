@@ -59,3 +59,7 @@ end
 When (/^I upload a file with an invalid extension$/) do
   attach_file(:image_url, '../support/files/cat.txt')
 end
+
+Then(/^I should see a "(.*?)" button$/) do |arg1|
+  page.should have_button(arg1)
+end

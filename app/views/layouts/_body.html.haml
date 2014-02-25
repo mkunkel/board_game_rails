@@ -1,0 +1,38 @@
+%nav.top-bar
+  %ul.title-area
+    %li
+      .name
+        %h1#title Board Game Tracker
+  %section.top-bar-section
+    %ul.right
+      - if current_user
+        %li{:class => 'has_form'}
+          = link_to "My Profile", user_path(current_user)
+        %li.divider
+        %li{:class => 'has_form'}
+          = link_to "Sign Out", destroy_user_session_path, method: :delete
+      - else
+        %li{:class => 'has_form'}
+          = link_to "Sign Up", new_user_registration_path
+        %li.divider
+        %li{:class => 'has_form'}
+          = link_to "Sign In", new_user_session_path
+    %ul.left
+      - if current_user
+        %li
+          = link_to "Home", root_path
+        %li
+          = link_to "Add Game", new_game_path
+        %li
+          = link_to "Play Game", root_path
+        %li
+          = link_to "Find Game", root_path
+
+.row
+  .small-offset-1.small-6.columns
+    -if flash.notice
+      .alert-box.success.radius
+        = flash.notice
+    -if flash.alert
+      .alert-box.warning.radius
+        = flash.alert
