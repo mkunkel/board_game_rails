@@ -1,6 +1,4 @@
-<!doctype html>
-%html{:lang => "en"}
-%head
-  %meta{:charset => "UTF-8"}/
-  %title Document
-%body
+%h3 Recently Played Games
+%ul.small-block-grid-3
+  - @plays.each do |play|
+    = render play

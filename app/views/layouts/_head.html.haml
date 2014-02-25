@@ -23,6 +23,16 @@
           %li.divider
           %li{:class => 'has_form'}
             = link_to "Sign In", new_user_session_path
+      %ul.left
+        - if current_user
+          %li
+            = link_to "Home", root_path
+          %li
+            = link_to "Add Game", new_game_path
+          %li
+            = link_to "Play Game", root_path
+          %li
+            = link_to "Find Game", root_path
 
 .row
   .small-offset-1.small-6.columns

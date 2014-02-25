@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def index
+    if current_user
+      redirect_to games_path
+    else
+      redirect_to plays_path
+    end
+  end
+
   protected
 
   def configure_permitted_parameters

@@ -13,15 +13,16 @@ Feature: Adding games
   Scenario: User views add game
     Then I should see "Playing Time"
     And I should see "Name"
-    And I should see "Minimum Players"
-    And I should see "Maximum Players"
-    And I should see "Submit"
+    And I should see "Min. Players"
+    And I should see "Max. Players"
+    And I should see a "Submit" button
 
   Scenario: User adds game
-    Then I fill in "90" for "Playing Time"
+    Then I select "1" from "Playing Time (hours)"
+    And I select "0" from "Playing Time (minutes)"
     And I fill in "Shadows Over Camelot" for "Name"
-    And I fill in "3" for "Minimum Players"
-    And I fill in "7" for "Maximum Players"
+    And I select "3" from "Min Players"
+    And I select "7" from "Max Players"
     And I press "Submit"
     And I go to the homepage
     Then I should see "Shadows Over Camelot"
