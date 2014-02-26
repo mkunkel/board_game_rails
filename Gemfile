@@ -6,6 +6,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'foundation-rails'
+gem 'bgg-api'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -28,9 +29,12 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'nyan-cat-formatter'
   gem 'letter_opener'
+
 end
 
 group :test do
+  gem 'vcr'
+  gem 'webmock'
   gem 'email_spec'
   gem 'shoulda-matchers'
 end

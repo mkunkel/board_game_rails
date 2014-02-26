@@ -41,6 +41,9 @@ GEM
     arel (4.0.2)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
+    bgg-api (0.0.2)
+      httparty
+      xml-simple
     builder (3.1.4)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -56,6 +59,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     cucumber (1.3.10)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.3)
@@ -93,6 +98,9 @@ GEM
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
     hike (1.2.3)
+    httparty (0.13.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -113,6 +121,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.4)
     multi_test (0.0.3)
+    multi_xml (0.5.5)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     nyan-cat-formatter (0.5.2)
@@ -159,6 +168,7 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    safe_yaml (1.0.1)
     sass (3.2.14)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -195,8 +205,13 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    vcr (2.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    webmock (1.17.3)
+      addressable (>= 2.2.7)
+      crack (>= 0.3.2)
+    xml-simple (1.1.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -204,6 +219,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bgg-api
   coffee-rails (~> 4.0.0)
   cucumber-rails
   database_cleaner!
@@ -228,3 +244,5 @@ DEPENDENCIES
   simple_form
   turbolinks
   uglifier (>= 1.3.0)
+  vcr
+  webmock
