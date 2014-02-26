@@ -5,13 +5,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    details = {}
-    details[:name] = params[:game][:name]
-    details[:min_players] = params[:game][:min_players].to_i
-    details[:max_players] = params[:game][:max_players].to_i
-    details[:playing_time] = params[:game][:playing_time_minutes].to_i +
-                             (params[:game][:playing_time_hours].to_i * 60)
-    if current_user.games << Game.create(details)
+    if current_user.games << create_game(params[:game])
       redirect_to "/games/#{current_user.games.last.id}"
     else
       render :action => :new
@@ -20,6 +14,18 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+  end
+
+  private
+
+  def create_game params
+    Game.find_or_create_by(name: params[:name]) do |game|
+      game.name = params[:name]
+      game.min_players = params[:min_players].to_i
+      game.max_players = params[:max_players].to_i
+      game.playing_time = params[:playing_time_minutes].to_i +
+                          (params[:playing_time_hours].to_i * 60)
+    end
   end
 
 end

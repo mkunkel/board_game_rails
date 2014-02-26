@@ -32,3 +32,9 @@ end
 Then(/^I should see (\d+) plays$/) do |num|
   page.should have_css(".game-play", count: num)
 end
+
+Then(/^"(.*?)" should be the same Game$/) do |arg1|
+  user_game = User.last.games.where(name: arg1).last.id
+  game = Game.where(name: arg1).last.id
+  expect(user_game).to eq(game)
+end
