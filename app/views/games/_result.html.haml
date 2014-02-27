@@ -1,1 +1,5 @@
-%li.result= result["name"].first["value"]
+%li.result
+  - if result[:bgg_id]
+    = link_to result[:name], game_path(result[:bgg_id], format: :bgg)
+  - else
+    = link_to result[:name], game_path(result[:game_id])

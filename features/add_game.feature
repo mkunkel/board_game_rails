@@ -46,15 +46,6 @@ Feature: Adding games
     And I press "Submit"
     Then I should see "Game Results"
     And I click "Shadows over Camelot"
-    When I go to the homepage
-    Then I should see "Shadows over Camelot"
-
-  @vcr
-  Scenario: User looks up game and adds a search result
-    And I fill in "Shadows Over Camelot" for "Search by Name"
-    And I press "Submit"
-    Then I should see "Game Results"
-    And I click "Shadows over Camelot"
     And I click "Add To My Collection"
     When I go to the homepage
     Then I should see "Shadows Over Camelot"
