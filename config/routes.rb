@@ -10,7 +10,7 @@ BoardGameRails::Application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
   get 'users/:id' => 'users#show', :as => :user
   # get 'plays/' => 'plays#index', :as => :plays
-  get 'games/create' => 'games#create', :as => :games_create
+  get 'games/search' => 'games#search', :as => :games_search
   resources :plays, only: [:index]
   resources :games
   # get 'games/' => 'games#index', :as => :games

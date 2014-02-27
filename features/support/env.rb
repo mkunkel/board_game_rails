@@ -25,6 +25,8 @@ require 'cucumber/rails'
 ## Make sure this require is after you require cucumber/rails/world.
 require 'email_spec' # add this line if you use spork
 require 'email_spec/cucumber'
+
+require 'pry'
 # 2) Set the value below to true. Beware that doing this globally is not
 # recommended as it will mask a lot of errors for you!
 #

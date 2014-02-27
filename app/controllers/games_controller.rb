@@ -16,6 +16,14 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
+  def search
+    @results = nil
+    if params[:name]
+      bgg = BggApi.new
+      @results = bgg.search({query: params[:name], type: 'boardgame'})["item"]
+    end
+  end
+
   private
 
   def create_game params

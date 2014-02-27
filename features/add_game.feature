@@ -10,35 +10,51 @@ Feature: Adding games
     And I press "Sign in"
     And I click "Add Game"
 
+  @vcr
   Scenario: User views add game
-    Then I should see "Playing Time"
-    And I should see "Name"
-    And I should see "Min. Players"
-    And I should see "Max. Players"
+    Then I should see "Search by Name"
     And I should see a "Submit" button
 
-  Scenario: User adds game
-    Then I select "1" from "Playing Time (hours)"
-    And I select "0" from "Playing Time (minutes)"
-    And I fill in "Shadows Over Camelot" for "Name"
-    And I select "3" from "Min Players"
-    And I select "7" from "Max Players"
+  @vcr
+  Scenario: User looks up game
+    And I fill in "Shadows Over Camelot" for "Search by Name"
     And I press "Submit"
-    And I go to the homepage
-    Then I should see "Shadows Over Camelot"
+    Then I should see "Game Results"
+    And I should see "5" results
+    And I should see "Shadows over Camelot: Merlin's Company"
+    And I should see "Shadows over Camelot: The Card Game – Merlin & Morgan Promo cards"
+    And I should see "Search again?"
+    And I should see "Didn't find your game?"
+    And I should see "Results provided by Board Game Geek"
 
-  Scenario: User adds game that exists
+  @vcr
+  Scenario: User looks up game that exists in local database
     Given the following game:
       | name              | Shadows Over Camelot |
-      | playing_time      | 60  |
+      | playing_time      | 60 |
       | min_players       | 3  |
       | max_players       | 7  |
-    Then I select "1" from "Playing Time (hours)"
-    And I select "0" from "Playing Time (minutes)"
-    And I fill in "Shadows Over Camelot" for "Name"
-    And I select "3" from "Min Players"
-    And I select "7" from "Max Players"
+      | bgg_id            | 15062 |
+    When I fill in "Shadows Over Camelot" for "Search by Name"
     And I press "Submit"
-    And I go to the homepage
+    Then I should see "Game Results"
+    And  I should see "5" results
+
+  @vcr
+  Scenario: User looks up game and adds a search result
+    And I fill in "Shadows Over Camelot" for "Search by Name"
+    And I press "Submit"
+    Then I should see "Game Results"
+    And I click "Shadows over Camelot"
+    When I go to the homepage
+    Then I should see "Shadows over Camelot"
+
+  @vcr
+  Scenario: User looks up game and adds a search result
+    And I fill in "Shadows Over Camelot" for "Search by Name"
+    And I press "Submit"
+    Then I should see "Game Results"
+    And I click "Shadows over Camelot"
+    And I click "Add To My Collection"
+    When I go to the homepage
     Then I should see "Shadows Over Camelot"
-    And "Shadows Over Camelot" should be the same Game

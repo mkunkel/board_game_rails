@@ -26,7 +26,6 @@ When(/^I go to (.*?)'s profile page$/) do |name|
 end
 
 When(/^I (?:click|follow) "(.*?)"$/) do |link|
-  # binding.pry
   click_link(link)
 end
 

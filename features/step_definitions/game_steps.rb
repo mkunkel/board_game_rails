@@ -38,3 +38,9 @@ Then(/^"(.*?)" should be the same Game$/) do |arg1|
   game = Game.where(name: arg1).last.id
   expect(user_game).to eq(game)
 end
+
+Then(/^I should see "(.*?)" results$/) do |arg1|
+  page.should have_css("li.result", count: arg1)
+end
+
+

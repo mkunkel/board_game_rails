@@ -13,6 +13,7 @@ describe Game do
     it { should have_db_column(:max_players) }
     it { should have_db_column(:playing_time) }
     it { should have_db_column(:description) }
+    it { should have_db_column(:bgg_id) }
   end
 
   context 'associations' do
@@ -59,6 +60,7 @@ describe Game do
     it { should validate_numericality_of(:min_players) }
     it { should validate_numericality_of(:max_players) }
     it { should validate_numericality_of(:playing_time) }
+    it { should validate_numericality_of(:bgg_id) }
     it { should validate_uniqueness_of(:name) }
 
     let(:game) { Fabricate(:game) }

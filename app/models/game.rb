@@ -2,6 +2,7 @@ class Game < ActiveRecord::Base
   validates_presence_of :name, :min_players, :max_players, :playing_time
   validates_uniqueness_of :name
   validates_numericality_of :min_players, :max_players, :playing_time
+  validates_numericality_of :bgg_id, allow_nil: true
   validate :min_players_less_than_or_equal_to_max_players
 
   has_many :plays

@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.boardgamegeek.com/xmlapi2/search?query=Shadows%20Over%20Camelot&type=boardgame
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.0.15
+      Date:
+      - Thu, 27 Feb 2014 02:33:25 GMT
+      Content-Type:
+      - text/xml; charset="UTF-8"
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/5.3.3
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      Vary:
+      - Accept-Encoding,User-Agent
+      Content-Length:
+      - '976'
+      Set-Cookie:
+      - Coyote-2-48e91082=48e910b2:3; path=/
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48aXRlbXMg
+        dG90YWw9IjUiIHRlcm1zb2Z1c2U9Imh0dHA6Ly9ib2FyZGdhbWVnZWVrLmNv
+        bS94bWxhcGkvdGVybXNvZnVzZSI+CQkJPGl0ZW0gdHlwZT0iYm9hcmRnYW1l
+        IiBpZD0iMTUwNjIiPgoJCQk8bmFtZSB0eXBlPSJwcmltYXJ5IiB2YWx1ZT0i
+        U2hhZG93cyBvdmVyIENhbWVsb3QiLz4JCQkKCQkJCQkJCTx5ZWFycHVibGlz
+        aGVkIHZhbHVlPSIyMDA1IiAvPgoJCQkJCTwvaXRlbT4KCQkJPGl0ZW0gdHlw
+        ZT0iYm9hcmRnYW1lIiBpZD0iMzU3MDQiPgoJCQk8bmFtZSB0eXBlPSJwcmlt
+        YXJ5IiB2YWx1ZT0iU2hhZG93cyBvdmVyIENhbWVsb3Q6IE1lcmxpbiYjMDM5
+        O3MgQ29tcGFueSIvPgkJCQoJCQkJCQkJPHllYXJwdWJsaXNoZWQgdmFsdWU9
+        IjIwMDgiIC8+CgkJCQkJPC9pdGVtPgoJCQk8aXRlbSB0eXBlPSJib2FyZGdh
+        bWUiIGlkPSIyMDg1NyI+CgkJCTxuYW1lIHR5cGU9InByaW1hcnkiIHZhbHVl
+        PSJTaGFkb3dzIG92ZXIgQ2FtZWxvdDogU2lyIEJlZGl2ZXJlLCB0aGUgOHRo
+        IEtuaWdodCIvPgkJCQoJCQkJCQkJPHllYXJwdWJsaXNoZWQgdmFsdWU9IjIw
+        MDUiIC8+CgkJCQkJPC9pdGVtPgoJCQk8aXRlbSB0eXBlPSJib2FyZGdhbWUi
+        IGlkPSIxMjk5MDQiPgoJCQk8bmFtZSB0eXBlPSJwcmltYXJ5IiB2YWx1ZT0i
+        U2hhZG93cyBvdmVyIENhbWVsb3Q6IFRoZSBDYXJkIEdhbWUiLz4JCQkKCQkJ
+        CQkJCTx5ZWFycHVibGlzaGVkIHZhbHVlPSIyMDEyIiAvPgoJCQkJCTwvaXRl
+        bT4KCQkJPGl0ZW0gdHlwZT0iYm9hcmRnYW1lIiBpZD0iMTMyNDI2Ij4KCQkJ
+        PG5hbWUgdHlwZT0icHJpbWFyeSIgdmFsdWU9IlNoYWRvd3Mgb3ZlciBDYW1l
+        bG90OiBUaGUgQ2FyZCBHYW1lIOKAkyBNZXJsaW4gJmFtcDsgTW9yZ2FuIFBy
+        b21vIGNhcmRzIi8+CQkJCgkJCQkJCQk8eWVhcnB1Ymxpc2hlZCB2YWx1ZT0i
+        MjAxMiIgLz4KCQkJCQk8L2l0ZW0+Cgk8L2l0ZW1zPg==
+    http_version: 
+  recorded_at: Thu, 27 Feb 2014 02:33:24 GMT
+recorded_with: VCR 2.8.0
