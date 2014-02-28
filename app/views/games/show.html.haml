@@ -5,6 +5,7 @@
   .small-2.columns
     - if current_user.games.include?(@game)
       = link_to "Remove From My Collection", remove_game_path(@game.id)
+      = link_to "Play This Game", new_play_path(@game.id)
     - else
       - if @game.id
         = link_to "Add To My Collection", add_game_path(@game.id)

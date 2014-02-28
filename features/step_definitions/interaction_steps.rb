@@ -78,3 +78,6 @@ Given(/^I'm signed in as "(.*?)"$/) do |arg1|
   }
 end
 
+Then(/^"(.*?)" should have a player id$/) do |user_name|
+  expect(User.where(username: user_name).first.player_id).not_to be_nil
+end

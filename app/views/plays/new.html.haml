@@ -1,0 +1,10 @@
+%h3 New Game Play
+= form_tag :play, method: :post
+.row
+  .small-10.columns
+    = label_tag :players, "Players (separated by commas)"
+    = text_field_tag :players, nil
+    = label_tag :include_me, "Include me in this game"
+    = check_box_tag :include_me, @player_name, true
+  .small-2.columns
+    = submit_tag("Submit")

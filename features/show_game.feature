@@ -1,7 +1,8 @@
 Feature: Showing games
   Background:
     Given I'm signed in as "joe@example.com"
-    Given a set of 2 games in collection
+    Given a set of 3 games in collection
+    And I go to the homepage
 
   Scenario: User views games
     When I click "game1"

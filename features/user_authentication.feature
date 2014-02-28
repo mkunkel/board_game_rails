@@ -15,6 +15,7 @@ Feature: User authentication
     And I fill in "password" for "Password confirmation"
     And I press "Sign up"
     Then I should see "Welcome! You have signed up successfully."
+    And "joe" should have a player id
     And I should see "Sign Out"
     And I should not see "Sign In"
     And I should not see "Sign Up"
