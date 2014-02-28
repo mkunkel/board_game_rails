@@ -1,7 +1,18 @@
 class GamesController < ApplicationController
 
-  def index
-    @games = current_user.games.to_a unless current_user.games.nil?
+  def add
+    if params[:format] == "bgg"
+      bgg = BggApi.new
+      game = bgg_to_game(bgg.thing({id: params[:id]}))
+    else
+      game = Game.find(params[:id])
+    end
+    game.save
+    if current_user.games << game
+      redirect_to games_path
+    else
+      render :action => :new
+    end
   end
 
   def create
@@ -12,14 +23,8 @@ class GamesController < ApplicationController
     end
   end
 
-  def show
-    if params[:format] = :bgg
-      bgg = BggApi.new
-      @game = bgg_to_game(bgg.thing({id: params[:id]}))
-
-    else
-      @game = Game.find(params[:id])
-    end
+  def index
+    @games = current_user.games.to_a unless current_user.games.nil?
   end
 
   def search
@@ -32,13 +37,23 @@ class GamesController < ApplicationController
     end
   end
 
+  def show
+    if params[:format] == "bgg"
+      bgg = BggApi.new
+      @game = bgg_to_game(bgg.thing({id: params[:id]}))
+
+    else
+      @game = Game.find(params[:id])
+    end
+  end
+
   private
 
   def bgg_to_game bgg
     game = Game.new
     bgg = bgg["item"].first
     game.bgg_id = bgg["id"]
-    game.name = bgg["name"].select{|x| x["value"] if x["type"] == "primary"}.first
+    game.name = bgg["name"].select{|x| x if x["type"] == "primary"}.first["value"]
     game.min_players = bgg["minplayers"].first["value"]
     game.max_players = bgg["maxplayers"].first["value"]
     game.playing_time = bgg["playingtime"].first["value"]

@@ -48,4 +48,4 @@ Feature: Adding games
     And I click "Shadows over Camelot"
     And I click "Add To My Collection"
     When I go to the homepage
-    Then I should see "Shadows Over Camelot"
+    Then I should see "Shadows over Camelot"

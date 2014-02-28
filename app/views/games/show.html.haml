@@ -1,7 +1,13 @@
 .row
-  .small-12.columns
+  .small-10.columns
     %h3 Show Game
     = @game.name
+  .small-2.columns
+    - if @game.id
+      = link_to "Add To My Collection", add_game_path(@game.id)
+    - else
+      = link_to "Add To My Collection", add_game_path(@game.bgg_id, format: :bgg)
+
 .row
   .small-5.columns
     = players_string @game
