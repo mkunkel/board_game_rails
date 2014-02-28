@@ -27,6 +27,11 @@ class GamesController < ApplicationController
     @games = current_user.games.to_a unless current_user.games.nil?
   end
 
+  def remove
+    current_user.games.destroy(params[:id])
+    redirect_to games_path
+  end
+
   def search
     @results = nil
     if params[:name]

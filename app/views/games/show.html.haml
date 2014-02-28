@@ -3,10 +3,13 @@
     %h3 Show Game
     = @game.name
   .small-2.columns
-    - if @game.id
-      = link_to "Add To My Collection", add_game_path(@game.id)
+    - if current_user.games.include?(@game)
+      = link_to "Remove From My Collection", remove_game_path(@game.id)
     - else
-      = link_to "Add To My Collection", add_game_path(@game.bgg_id, format: :bgg)
+      - if @game.id
+        = link_to "Add To My Collection", add_game_path(@game.id)
+      - else
+        = link_to "Add To My Collection", add_game_path(@game.bgg_id, format: :bgg)
 
 .row
   .small-5.columns
