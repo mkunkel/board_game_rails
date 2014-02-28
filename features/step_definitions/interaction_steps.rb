@@ -81,3 +81,11 @@ end
 Then(/^"(.*?)" should have a player id$/) do |user_name|
   expect(User.where(username: user_name).first.player_id).not_to be_nil
 end
+
+When(/^I uncheck "(.*?)"$/) do |checkbox|
+  uncheck checkbox
+end
+
+When(/^I check "(.*?)"$/) do |checkbox|
+  check checkbox
+end
