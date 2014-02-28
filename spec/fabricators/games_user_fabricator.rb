@@ -1,4 +1,4 @@
 Fabricator(:games_user) do
-  game_id{ sequence(:game_id) { |i| i } }
+  game
   user_id{ User.last.id }
 end

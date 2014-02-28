@@ -64,3 +64,17 @@ end
 Then(/^I should see a "(.*?)" button$/) do |arg1|
   page.should have_button(arg1)
 end
+
+Given(/^I'm signed in as "(.*?)"$/) do |arg1|
+  steps %{
+    Given the following user:
+      | username              | #{arg1.split('@').first} |
+      | email                 | #{arg1}                  |
+    When I go to the homepage
+    And I follow "Sign In"
+    And I fill in "#{arg1}" for "Email / Username"
+    And I fill in "password" for "Password"
+    And I press "Sign in"
+  }
+end
+

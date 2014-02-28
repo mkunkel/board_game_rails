@@ -1,14 +1,7 @@
 @vcr
 Feature: Adding games
   Background:
-    Given the following user:
-      | username              | joe             |
-      | email                 | joe@example.com |
-    When I go to the homepage
-    And I follow "Sign In"
-    And I fill in "joe@example.com" for "Email / Username"
-    And I fill in "password" for "Password"
-    And I press "Sign in"
+    Given I'm signed in as "joe@example.com"
     And I click "Add Game"
     When I fill in "Shadows Over Camelot" for "Search by Name"
     And I press "Submit"

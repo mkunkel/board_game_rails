@@ -1,15 +1,7 @@
 Feature: Showing games
   Background:
-    Given the following user:
-      | username              | joe             |
-      | email                 | joe@example.com |
-    And a set of 3 games in collection
-    When I go to the homepage
-    And I follow "Sign In"
-    And I fill in "joe@example.com" for "Email / Username"
-    And I fill in "password" for "Password"
-    And I press "Sign in"
-
+    Given I'm signed in as "joe@example.com"
+    Given a set of 2 games in collection
 
   Scenario: User views games
     When I click "game1"

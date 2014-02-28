@@ -7,7 +7,7 @@ describe GamesUser do
   end
 
   context 'associations' do
-    it { should have_many(:games) }
-    it { should have_many(:users) }
+    it { should belong_to(:game) }
+    it { should belong_to(:user) }
   end
 end
