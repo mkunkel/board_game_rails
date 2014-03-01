@@ -1,4 +1,4 @@
 Fabricator(:play) do
-  game_id{ sequence(:game_id) { |i| i } }
+  game
   after_create{Fabricate(:players_play) }
 end

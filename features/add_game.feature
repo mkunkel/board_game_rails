@@ -42,3 +42,8 @@ Feature: Adding games
     And I click "Add To My Collection"
     When I go to the homepage
     Then I should see "Shadows over Camelot"
+    When I click "Shadows over Camelot"
+    Then I should see "Shadows over Camelot"
+    And I should see "3-7 players"
+    And I should see "1 hour 30 minutes playing time"
+    And I should see "hand management and deduction"

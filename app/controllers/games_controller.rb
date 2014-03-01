@@ -73,6 +73,7 @@ class GamesController < ApplicationController
       game.max_players = params[:max_players].to_i
       game.playing_time = params[:playing_time_minutes].to_i +
                           (params[:playing_time_hours].to_i * 60)
+      game.description = params[:description]
     end
   end
 
@@ -99,7 +100,6 @@ class GamesController < ApplicationController
   end
 
   def format_results bgg_results, local_results
-    # binding.pry
     bgg_results = format_bgg_results(bgg_results)
     local_results = format_local_results(local_results)
     combine_results bgg_results, local_results
