@@ -73,7 +73,43 @@ Feature: Adding games
     And I should not see "Resistance"
     And I should see "No games found"
 
-  Scenario: User looks a game using 1 undefined player
+
+  Scenario: User looks for a game using 1 player who has played a game
+    Given "John Doe" has played "Ghost Stories"
+    When I fill in "John Doe" for "Players (separated by commas)"
+    And I uncheck "Include me in this game"
+    And I press "Suggest for these players"
+    Then I should see "Game suggestions for John Doe"
+    And I should not see "Shadows over Camelot"
+    And I should not see "Pandemic"
+    And I should not see "Ghost Stories"
+    And I should not see "Resistance"
+    And I should see "No games found"
+
+  Scenario: User looks for a game using 3 players with one played
+    Given "John Doe1" has played "Ghost Stories"
+    When I fill in "John Doe1, John Doe2, John Doe3" for "Players (separated by commas)"
+    And I uncheck "Include me in this game"
+    And I press "Suggest for these players"
+    Then I should see "Game suggestions for John Doe1, John Doe2 and John Doe3"
+    And I should see "Shadows over Camelot"
+    And I should see "Pandemic"
+    And I should not see "Ghost Stories"
+    And I should not see "Resistance"
+
+  Scenario: User looks for a game using 8 players with one played
+    Given "John Doe1" has played "Resistance"
+    When I fill in "John Doe1, John Doe2, John Doe3, John Doe4, John Doe 5, John Doe6, John Doe7, John Doe8" for "Players (separated by commas)"
+    And I uncheck "Include me in this game"
+    And I press "Suggest for these players"
+    Then I should see "Game suggestions for John Doe1, John Doe2, John Doe3, John Doe4, John Doe 5, John Doe6, John Doe7 and John Doe8"
+    And I should not see "Shadows over Camelot"
+    And I should not see "Pandemic"
+    And I should not see "Ghost Stories"
+    And I should not see "Resistance"
+    And I should see "No games found"
+
+    Scenario: User looks for a game using 1 undefined player
     When I fill in "John Doe" for "Players (separated by commas)"
     And I uncheck "Include me in this game"
     And I press "Suggest for these players"
@@ -83,7 +119,7 @@ Feature: Adding games
     And I should see "Ghost Stories"
     And I should not see "Resistance"
 
-  Scenario: User looks a game using 3 undefined players
+  Scenario: User looks for a game using 3 undefined players
     When I fill in "John Doe1, John Doe2, John Doe3" for "Players (separated by commas)"
     And I uncheck "Include me in this game"
     And I press "Suggest for these players"
@@ -93,7 +129,7 @@ Feature: Adding games
     And I should see "Ghost Stories"
     And I should not see "Resistance"
 
-  Scenario: User looks a game using 8 undefined players
+  Scenario: User looks for a game using 8 undefined players
     When I fill in "John Doe1, John Doe2, John Doe3, John Doe4, John Doe 5, John Doe6, John Doe7, John Doe8" for "Players (separated by commas)"
     And I uncheck "Include me in this game"
     And I press "Suggest for these players"
@@ -104,7 +140,7 @@ Feature: Adding games
     And I should see "Resistance"
 
 
-  Scenario: User looks a game to play with 1 undefined player
+  Scenario: User looks for a game to play with 1 undefined player
     When I fill in "John Doe" for "Players (separated by commas)"
     And I check "Include me in this game"
     And I press "Suggest for these players"
@@ -114,7 +150,7 @@ Feature: Adding games
     And I should see "Ghost Stories"
     And I should not see "Resistance"
 
-  Scenario: User looks a game to play with 3 undefined players
+  Scenario: User looks for a game to play with 3 undefined players
     When I fill in "John Doe1, John Doe2, John Doe3" for "Players (separated by commas)"
     And I check "Include me in this game"
     And I press "Suggest for these players"
@@ -124,7 +160,7 @@ Feature: Adding games
     And I should see "Ghost Stories"
     And I should not see "Resistance"
 
-  Scenario: User looks a game to play with 8 undefined players
+  Scenario: User looks for a game to play with 8 undefined players
     When I fill in "John Doe1, John Doe2, John Doe3, John Doe4, John Doe 5, John Doe6, John Doe7, John Doe8" for "Players (separated by commas)"
     And I check "Include me in this game"
     And I press "Suggest for these players"
@@ -134,7 +170,7 @@ Feature: Adding games
     And I should not see "Ghost Stories"
     And I should see "Resistance"
 
-  Scenario: User looks a game to play with 10 undefined players
+  Scenario: User looks for a game to play with 10 undefined players
     When I fill in "John Doe1, John Doe2, John Doe3, John Doe4, John Doe 5, John Doe6, John Doe7, John Doe8, John Doe9, John Doe10" for "Players (separated by commas)"
     And I check "Include me in this game"
     And I press "Suggest for these players"
