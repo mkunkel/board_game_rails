@@ -64,7 +64,7 @@ class GamesController < ApplicationController
       players = names_to_players(names)
       @for_string = names.join(" and ")
       @for_string = names[0..-2].join(", ") + " and " + names[-1] if names.count > 2
-      @suggestions = Game.by_number_of_players(players.count) - Game.played_by_players(players)
+      @suggestions = Game.by_number_of_players(players.count).not_played_by_players(players)
     end
       render "/games/suggestions" unless params[:commit].nil?
   end
