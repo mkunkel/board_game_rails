@@ -20,8 +20,8 @@ Feature: Adding games
     Then I select "1" from "Playing Time (hours)"
     And I select "0" from "Playing Time (minutes)"
     And I fill in "Shadows Over Camelot Dsa" for "Name"
-    And I select "3" from "Min Players"
-    And I select "7" from "Max Players"
+    And I select "3" from "Min. Players"
+    And I select "7" from "Max. Players"
     And I fill in "Cooperative game" for "Description"
     And I press "Submit"
     And I go to the homepage
@@ -41,8 +41,8 @@ Feature: Adding games
     Then I select "1" from "Playing Time (hours)"
     And I select "0" from "Playing Time (minutes)"
     And I fill in "Shadows Over Camelot" for "Name"
-    And I select "3" from "Min Players"
-    And I select "7" from "Max Players"
+    And I select "3" from "Min. Players"
+    And I select "7" from "Max. Players"
     And I press "Submit"
     And I go to the homepage
     Then I should see "Shadows Over Camelot"

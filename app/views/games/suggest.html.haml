@@ -10,7 +10,7 @@
           .row
             .small-12.columns
               = f.input :number_of_players, collection: 0..59, label: "How many players?"
-              = f.submit "Submit"
+              = f.submit "Suggest for this number"
     .row
       .small-12.columns
         %h4 By Player Names
@@ -19,4 +19,4 @@
             .small-12.columns
               = f.input :players, label: "Players (separated by commas)"
               = f.input :include_me, as: :boolean, label: "Include me in this game", input_html: {checked: true}
-              = f.submit "Submit"
+              = f.submit "Suggest for these players"

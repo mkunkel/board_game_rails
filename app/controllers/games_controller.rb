@@ -53,7 +53,17 @@ class GamesController < ApplicationController
   end
 
   def suggest
-
+    case params[:commit]
+    when "Suggest for this number"
+      number_of_players = params[:game][:number_of_players]
+      word = number_of_players == 1 ? "#player" : "players"
+      @for_string = "#{number_of_players.to_s} #{word}"
+      @suggestions = Game.by_number_of_players(number_of_players)
+    when "Suggest for these players"
+      # friends = friend_names_to_friends(params[:suggest_for_these_players])
+      # @suggestions =
+    end
+      render "/games/suggestions" unless params[:commit].nil?
   end
 
   private

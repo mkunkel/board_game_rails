@@ -11,7 +11,7 @@ class Game < ActiveRecord::Base
 
   scope :played_by_player, lambda { |f| f.games }
   scope :not_played_by_player, lambda { |f| all - f.games }
-  scope :not_played_by_player, lambda { |fs| all - fs.map{|x| x.games}.flatten }
+  scope :not_played_by_players, lambda { |fs| all - fs.map{|x| x.games}.flatten }
   scope :by_number_of_players, lambda { |num| where("#{num} BETWEEN min_players AND max_players") }
 
   private

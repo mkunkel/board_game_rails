@@ -93,3 +93,7 @@ end
 Then(/^"(.*?)" should be checked$/) do |arg1|
   page.should have_checked_field(arg1)
 end
+
+Then(/^I select "(.*?)" from "(.*?)"$/) do |value, field|
+  select(value, from: field)
+end

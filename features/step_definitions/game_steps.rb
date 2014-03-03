@@ -1,9 +1,3 @@
-Then(/^I select "(.*?)" from "(.*?)"$/) do |value, field|
-  field = "game #{field}"
-  field = field.gsub(/[().]/, "").split(" ").join("_").downcase
-  select(value, from: field)
-end
-
 Given(/^a set of (\d+) plays$/) do |num|
   num.to_i.times do
     Fabricate(:play)
