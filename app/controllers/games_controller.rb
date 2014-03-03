@@ -52,6 +52,10 @@ class GamesController < ApplicationController
     end
   end
 
+  def suggest
+
+  end
+
   private
 
   def bgg_to_game bgg
