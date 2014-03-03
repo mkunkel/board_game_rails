@@ -60,8 +60,11 @@ class GamesController < ApplicationController
       @for_string = "#{number_of_players.to_s} #{word}"
       @suggestions = Game.by_number_of_players(number_of_players)
     when "Suggest for these players"
-      # friends = friend_names_to_friends(params[:suggest_for_these_players])
-      # @suggestions =
+      names = params[:game][:players].split(",").map{|x| x.strip}
+      players = names_to_players(names)
+      @for_string = names.join(" and ")
+      @for_string = names[0..-2].join(", ") + " and " + names[-1] if names.count > 2
+      @suggestions = Game.by_number_of_players(players.count) - Game.played_by_players(players)
     end
       render "/games/suggestions" unless params[:commit].nil?
   end
@@ -119,4 +122,7 @@ class GamesController < ApplicationController
     combine_results bgg_results, local_results
   end
 
+  def names_to_players names
+    names.map{|name| Player.find_or_create_by(name: name)}
+  end
 end

@@ -62,3 +62,30 @@ Feature: Adding games
     And I should not see "Pandemic"
     And I should not see "Ghost Stories"
     And I should see "Resistance"
+
+  Scenario: User looks a game using 1 undefined player
+    When I fill in "John Doe" for "Players (separated by commas)"
+    And I press "Suggest for these players"
+    Then I should see "Game suggestions for John Doe"
+    And I should not see "Shadows over Camelot"
+    And I should not see "Pandemic"
+    And I should see "Ghost Stories"
+    And I should not see "Resistance"
+
+  Scenario: User looks a game using 3 undefined players
+    When I fill in "John Doe1, John Doe2, John Doe3" for "Players (separated by commas)"
+    And I press "Suggest for these players"
+    Then I should see "Game suggestions for John Doe1, John Doe2 and John Doe3"
+    And I should see "Shadows over Camelot"
+    And I should see "Pandemic"
+    And I should see "Ghost Stories"
+    And I should not see "Resistance"
+
+  Scenario: User looks a game using 8 undefined players
+    When I fill in "John Doe1, John Doe2, John Doe3, John Doe4, John Doe 5, John Doe6, John Doe7, John Doe8" for "Players (separated by commas)"
+    And I press "Suggest for these players"
+    Then I should see "Game suggestions for John Doe1, John Doe2, John Doe3, John Doe4, John Doe 5, John Doe6, John Doe7 and John Doe8"
+    And I should not see "Shadows over Camelot"
+    And I should not see "Pandemic"
+    And I should not see "Ghost Stories"
+    And I should see "Resistance"
