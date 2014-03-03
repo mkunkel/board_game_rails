@@ -62,9 +62,10 @@ class GamesController < ApplicationController
     when "Suggest for these players"
       names = params[:game][:players].split(",").map{|x| x.strip}
       players = names_to_players(names)
+      user = params[:game][:include_me].to_i
       @for_string = names.join(" and ")
       @for_string = names[0..-2].join(", ") + " and " + names[-1] if names.count > 2
-      @suggestions = Game.by_number_of_players(players.count).not_played_by_players(players)
+      @suggestions = Game.by_number_of_players(players.count + user).not_played_by_players(players)
     end
       render "/games/suggestions" unless params[:commit].nil?
   end

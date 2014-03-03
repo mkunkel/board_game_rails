@@ -3,7 +3,10 @@
     %h3= "Game suggestions for #{@for_string}"
 .row
   .small-12.columns
-    %ul
-      - @suggestions.each do |suggestion|
-        -# = suggestion
-        = render partial: "games/suggestion", locals: {suggestion: suggestion}
+    - unless @suggestions.empty?
+      %ul
+        - @suggestions.each do |suggestion|
+          -# = suggestion
+          = render partial: "games/suggestion", locals: {suggestion: suggestion}
+    - else
+      No games found
