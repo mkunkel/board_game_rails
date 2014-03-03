@@ -1,3 +1,22 @@
 .row
   .small-12.columns
     %h3 Suggest Games
+.row
+  .small-11.columns.small-offset-1
+    .row
+      .small-12.columns
+        %h4 By Number of Players
+        = simple_form_for :game, url: :suggest_game, action: :post do |f|
+          .row
+            .small-12.columns
+              = f.input :number_of_players, collection: 0..59, label: "How many players?"
+              = f.submit "Submit"
+    .row
+      .small-12.columns
+        %h4 By Player Names
+        = simple_form_for :game, url: :suggest_game, action: :post do |f|
+          .row
+            .small-12.columns
+              = f.input :players, label: "Players (separated by commas)"
+              = f.input :include_me, as: :boolean, label: "Include me in this game", input_html: {checked: true}
+              = f.submit "Submit"

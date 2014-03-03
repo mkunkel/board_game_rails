@@ -89,3 +89,7 @@ end
 When(/^I check "(.*?)"$/) do |checkbox|
   check checkbox
 end
+
+Then(/^"(.*?)" should be checked$/) do |arg1|
+  page.should have_checked_field(arg1)
+end
