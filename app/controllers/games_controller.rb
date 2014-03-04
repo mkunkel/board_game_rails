@@ -65,7 +65,12 @@ class GamesController < ApplicationController
       user = params[:game][:include_me].to_i
       @for_string = names.join(" and ")
       @for_string = names[0..-2].join(", ") + " and " + names[-1] if names.count > 2
-      @suggestions = Game.by_number_of_players(players.count + user).not_played_by_players(players)
+      if params[:game][:played] == "Show only games that are new to these people"
+        @suggestions = Game.by_number_of_players(players.count + user).not_played_by_players(players)
+      else
+        @suggestions = Game.by_number_of_players(players.count + user).played_by_players(players)
+      end
+      # binding.pry
     end
       render "/games/suggestions" unless params[:commit].nil?
   end
