@@ -97,3 +97,12 @@ end
 Then(/^I select "(.*?)" from "(.*?)"$/) do |value, field|
   select(value, from: field)
 end
+
+Then(/^"(.*?)" should be selected$/) do |arg1|
+  page.field_labeled("#{arg1}").should be_checked
+end
+
+When(/^I choose "(.*?)"$/) do |arg1|
+  choose(arg1)
+end
+

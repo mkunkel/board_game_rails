@@ -34,6 +34,9 @@ Feature: Adding games
     And I should see "Players (separated by commas)"
     And I should see "Include me in this game"
     And "Include me in this game" should be checked
+    And I should see "Show only games that are new to these people"
+    And I should see "Show only games these people know"
+    And "Show only games that are new to these people" should be selected
     And I should see a "Suggest for these players" button
 
   Scenario: User looks for 1 player games
@@ -178,5 +181,30 @@ Feature: Adding games
     And I should not see "Shadows over Camelot"
     And I should not see "Pandemic"
     And I should not see "Ghost Stories"
+    And I should not see "Resistance"
+    And I should see "No games found"
+
+  Scenario: User looks for a game 1 player has played with no plays
+    When I fill in "John Doe" for "Players (separated by commas)"
+    And I uncheck "Include me in this game"
+    And I choose "Show only games these people know"
+    And I press "Suggest for these players"
+    Then I should see "Game suggestions for John Doe"
+    And I should not see "Shadows over Camelot"
+    And I should not see "Pandemic"
+    And I should not see "Ghost Stories"
+    And I should not see "Resistance"
+    And I should see "No games found"
+
+  Scenario: User looks for a game 1 player has played with 1 plays
+    Given "John Doe" has played "Ghost Stories"
+    When I fill in "John Doe" for "Players (separated by commas)"
+    And I uncheck "Include me in this game"
+    And I choose "Show only games these people know"
+    And I press "Suggest for these players"
+    Then I should see "Game suggestions for John Doe"
+    And I should not see "Shadows over Camelot"
+    And I should not see "Pandemic"
+    And I should see "Ghost Stories"
     And I should not see "Resistance"
     And I should see "No games found"
