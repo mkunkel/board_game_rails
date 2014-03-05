@@ -7,9 +7,6 @@
     %ul.right
       - if current_user
         %li{:class => 'has_form'}
-          = link_to "My Profile", user_path(current_user)
-        %li.divider
-        %li{:class => 'has_form'}
           = link_to "Sign Out", destroy_user_session_path, method: :delete
       - else
         %li{:class => 'has_form'}
