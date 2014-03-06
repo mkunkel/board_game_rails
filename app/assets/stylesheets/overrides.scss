@@ -1,0 +1,16 @@
+$global-radius: 3px;
+$global-rounded: 1000px;
+
+form .row .row.collapse input.radius {
+  -moz-border-radius-bottomright: $global-radius;
+  -moz-border-radius-topright: $global-radius;
+  -webkit-border-bottom-right-radius: $global-radius;
+  -webkit-border-top-right-radius: $global-radius;
+}
+
+form .row .row.collapse input.round {
+  -moz-border-radius-bottomright: $global-rounded;
+  -moz-border-radius-topright: $global-rounded;
+  -webkit-border-bottom-right-radius: $global-rounded;
+  -webkit-border-top-right-radius: $global-rounded;
+}

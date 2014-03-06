@@ -2,13 +2,16 @@
   .small-12.columns
     - if @results.nil?
       %h3 Search For Game To Add
-      = form_tag :games_search, method: :get
-      .row
-        .small-10.columns
-          = label_tag :name, "Search by Name"
-          = text_field_tag :name, nil
-        .small-2.columns
-          = submit_tag("Submit")
+      .section
+        = form_tag :games_search, method: :get
+        .row
+          .small-12.columns
+            = label_tag :name, "Search by Name"
+        .row.collapse
+          .small-9.columns
+            = text_field_tag :name, nil
+          .small-3.columns
+            = submit_tag("Submit", class: "button postfix radius")
     - else
       %h3 Game Results
       .row

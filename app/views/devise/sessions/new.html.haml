@@ -15,9 +15,7 @@
             = f.input_field :remember_me, as: :boolean, inline_label: 'Remember me'
     .actions
       .row
-        .small-offset-3.small-6.columns
+        .small-offset-3.small-3.columns
           = f.button :submit, "Sign in", class: 'button tiny radius'
-.row
-  .small-offset-3
-
-  = render "devise/shared/links"
+        .small-6.columns
+          = render "devise/shared/links"
