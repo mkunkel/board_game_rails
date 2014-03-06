@@ -106,3 +106,6 @@ When(/^I choose "(.*?)"$/) do |arg1|
   choose(arg1)
 end
 
+Then(/^"(.*?)" should be required$/) do |arg1|
+  page.find_field("#{arg1}")["required"].should == "required"
+end

@@ -6,6 +6,7 @@ Feature: Adding games
   @vcr
   Scenario: User views add game
     Then I should see "Search by Name"
+    And "Search by Name" should be required
     And I should see a "Submit" button
 
   @vcr

@@ -9,7 +9,7 @@
             = label_tag :name, "Search by Name"
         .row.collapse
           .small-9.columns
-            = text_field_tag :name, nil
+            = text_field_tag :name, nil, required: true
           .small-3.columns
             = submit_tag("Submit", class: "button postfix radius")
     - else
