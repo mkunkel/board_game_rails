@@ -22,6 +22,12 @@ Feature: Adding games
     And I should see "Results provided by Board Game Geek"
 
   @vcr
+  Scenario: User looks up game that doesn't exist
+    And I fill in "rewrasdw" for "Search by Name"
+    And I press "Submit"
+    Then I should see "No results found"
+
+  @vcr
   Scenario: User looks up game that exists in local database
     Given the following game:
       | name              | Shadows Over Camelot |

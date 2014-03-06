@@ -17,8 +17,12 @@
       .row
         .small-12.columns
           %ul
-            - @results.each do |result|
-              = render partial: "games/result", locals: {result: result}
+            - unless @results.empty?
+              - @results.each do |result|
+                = render partial: "games/result", locals: {result: result}
+            - else
+              No results found
+
       .row
         .small-2.columns
           %sub "Results provided by Board Game Geek"

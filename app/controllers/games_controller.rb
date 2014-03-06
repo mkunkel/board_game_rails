@@ -123,6 +123,7 @@ class GamesController < ApplicationController
   end
 
   def format_results bgg_results, local_results
+    bgg_results ||= []
     bgg_results = format_bgg_results(bgg_results)
     local_results = format_local_results(local_results)
     combine_results bgg_results, local_results
