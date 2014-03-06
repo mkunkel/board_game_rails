@@ -1,11 +1,13 @@
-%h3 New Game Play
-= form_tag plays_path, method: :post
 .row
-  .small-10.columns
-    = label_tag :players, "Players (separated by commas)"
-    = text_field_tag :players, nil
-    = label_tag :include_me, "Include me in this game"
-    = check_box_tag :include_me, @player_name, true
-    = hidden_field_tag :game_id, @game_id
-  .small-2.columns
-    = submit_tag("Submit")
+  .small-12.columns
+    %h3 New Game Play
+    = form_tag plays_path, method: :post
+    .row
+      .small-10.columns
+        = label_tag :players, "Players (separated by commas)"
+        = text_field_tag :players, nil
+        = label_tag :include_me, "Include me in this game"
+        = check_box_tag :include_me, @player_name, true
+        = hidden_field_tag :game_id, @game_id
+      .small-2.columns
+        = submit_tag("Submit")

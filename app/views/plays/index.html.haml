@@ -1,4 +1,6 @@
-%h3 Recently Played Games
-%ul.small-block-grid-3
-  - @plays.each do |play|
-    = render play
+.row
+  .small-12.columns
+    %h3 Recently Played Games
+    %ul.small-block-grid-3
+      - @plays.each do |play|
+        = render play

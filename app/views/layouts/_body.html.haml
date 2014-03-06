@@ -26,10 +26,11 @@
           = link_to "Suggest Game", suggest_game_path
 
 .row
-  .small-offset-1.small-6.columns
+  .small-6.columns.small-offset-3
     -if flash.notice
       .alert-box.success.radius
         = flash.notice
     -if flash.alert
       .alert-box.warning.radius
         = flash.alert
+  .small-3.columns

@@ -1,23 +1,25 @@
-- if @results.nil?
-  %h3 Search For Game To Add
-  = form_tag :games_search, method: :get
-  .row
-    .small-10.columns
-      = label_tag :name, "Search by Name"
-      = text_field_tag :name, nil
-    .small-2.columns
-      = submit_tag("Submit")
-- else
-  %h3 Game Results
-  .row
-    .small-12.columns
-      %ul
-        - @results.each do |result|
-          = render partial: "games/result", locals: {result: result}
-  .row
-    .small-2.columns
-      %sub "Results provided by Board Game Geek"
-    .small-2.columns.small-offset-6
-      = link_to "Search again?", games_search_path
-    .small-2.columns
-      = link_to "Didn't find your game?", new_game_path
+.row
+  .small-12.columns
+    - if @results.nil?
+      %h3 Search For Game To Add
+      = form_tag :games_search, method: :get
+      .row
+        .small-10.columns
+          = label_tag :name, "Search by Name"
+          = text_field_tag :name, nil
+        .small-2.columns
+          = submit_tag("Submit")
+    - else
+      %h3 Game Results
+      .row
+        .small-12.columns
+          %ul
+            - @results.each do |result|
+              = render partial: "games/result", locals: {result: result}
+      .row
+        .small-2.columns
+          %sub "Results provided by Board Game Geek"
+        .small-2.columns.small-offset-6
+          = link_to "Search again?", games_search_path
+        .small-2.columns
+          = link_to "Didn't find your game?", new_game_path

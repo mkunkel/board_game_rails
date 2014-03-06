@@ -1,20 +1,22 @@
-%h3 Add Game
-= simple_form_for :game, url: :games, action: :post do |f|
-  .row
-    .small-12.columns
-      = f.input :name, :autofocus => true, label: "Name"
-  .row
-    .small-5.columns
-      = f.input :min_players, collection: 1..20, label: "Min. Players"
-    .small-5.columns.small-offset-2
-      = f.input :playing_time_hours, collection: 0..10, label: "Playing Time (hours)"
-  .row
-    .small-5.columns
-      = f.input :max_players, collection: 1..60, label: "Max. Players"
-    .small-5.columns.small-offset-2
-      = f.input :playing_time_minutes, collection: 0..59, label: "Playing Time (minutes)"
-  .row
-    .small-12.columns
-      = f.input :description, as: :text, label: "Description"
-  .row
-    .small-12.columns= f.submit "Submit"
+.row
+  .small-12.columns
+    %h3 Add Game
+    = simple_form_for :game, url: :games, action: :post do |f|
+      .row
+        .small-12.columns
+          = f.input :name, :autofocus => true, label: "Name"
+      .row
+        .small-5.columns
+          = f.input :min_players, collection: 1..20, label: "Min. Players"
+        .small-5.columns.small-offset-2
+          = f.input :playing_time_hours, collection: 0..10, label: "Playing Time (hours)"
+      .row
+        .small-5.columns
+          = f.input :max_players, collection: 1..60, label: "Max. Players"
+        .small-5.columns.small-offset-2
+          = f.input :playing_time_minutes, collection: 0..59, label: "Playing Time (minutes)"
+      .row
+        .small-12.columns
+          = f.input :description, as: :text, label: "Description"
+      .row
+        .small-12.columns= f.submit "Submit"
