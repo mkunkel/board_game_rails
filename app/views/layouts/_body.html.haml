@@ -4,6 +4,20 @@
       .name
         %h1#title Board Game Tracker
   %section.top-bar-section
+    %ul.left
+      %li.divider
+      - if current_user
+        %li.active
+          = link_to "Home", root_path
+        %li.divider
+        %li.active
+          = link_to "Add Game", games_search_path
+        %li.divider
+        %li.active
+          = link_to "Play Game", root_path
+        %li.divider
+        %li.active
+          = link_to "Suggest Game", suggest_game_path
     %ul.right
       - if current_user
         %li{:class => 'has_form'}
@@ -14,16 +28,6 @@
         %li.divider
         %li{:class => 'has_form'}
           = link_to "Sign In", new_user_session_path
-    %ul.left
-      - if current_user
-        %li
-          = link_to "Home", root_path
-        %li
-          = link_to "Add Game", games_search_path
-        %li
-          = link_to "Play Game", root_path
-        %li
-          = link_to "Suggest Game", suggest_game_path
 
 .row
   .small-6.columns.small-offset-3
