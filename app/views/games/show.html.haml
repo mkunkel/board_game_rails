@@ -1,23 +1,21 @@
 .row
-  .small-10.columns
-    %h3 Show Game
-    = @game.name
-  .small-2.columns
+  .small-3.columns
+    =image_tag @game.thumbnail
+  .small-6.columns
+    %h3= @game.name
+    %ul
+      %li= players_string @game
+      %li= play_time_to_string @game.playing_time
+  .small-3.columns
     - if current_user.games.include?(@game)
-      = link_to "Remove From My Collection", remove_game_path(@game.id)
-      = link_to "Play This Game", new_play_path(@game.id)
+      = link_to "Remove From My Collection", remove_game_path(@game.id), class: "tiny button alert"
+      = link_to "Play This Game", new_play_path(@game.id), class: "tiny button"
     - else
       - if @game.id
-        = link_to "Add To My Collection", add_game_path(@game.id)
+        = link_to "Add To My Collection", add_game_path(@game.id), class: "tiny button success"
       - else
-        = link_to "Add To My Collection", add_game_path(@game.bgg_id, format: :bgg)
-
-.row
-  .small-5.columns
-    = players_string @game
-  .small-5.columns.small-offset-2
-    = play_time_to_string @game.playing_time
+        = link_to "Add To My Collection", add_game_path(@game.bgg_id, format: :bgg), class: "tiny button success"
 .row
   .small-12.columns
-    = @game.description
-
+    %br
+      = @game.description.gsub(/&#10;/, "<br />").html_safe

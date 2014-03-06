@@ -86,6 +86,8 @@ class GamesController < ApplicationController
     game.max_players = bgg["maxplayers"].first["value"]
     game.playing_time = bgg["playingtime"].first["value"]
     game.description = bgg["description"].first
+    game.thumbnail = bgg["thumbnail"].first
+    game.image = bgg["image"].first
     game
   end
 
