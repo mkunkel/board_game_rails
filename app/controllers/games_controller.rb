@@ -86,8 +86,8 @@ class GamesController < ApplicationController
     game.max_players = bgg["maxplayers"].first["value"]
     game.playing_time = bgg["playingtime"].first["value"]
     game.description = bgg["description"].first.gsub(/&#10;/, "<br />").gsub(/&#13;/, "<br />")
-    game.thumbnail = bgg["thumbnail"].first
-    game.image = bgg["image"].first
+    game.thumbnail = bgg["thumbnail"].first unless bgg["thumbnail"].nil?
+    game.image = bgg["image"].first unless bgg["image"].nil?
     game
   end
 
