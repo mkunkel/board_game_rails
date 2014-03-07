@@ -31,6 +31,7 @@ Feature: Adding games
     And I should see "1 hour playing time"
     And I should see "3-7 players"
     And I should see "Cooperative game"
+    And I should not see "Details provided by Board Game Geek"
 
   Scenario: User adds game that exists
     Given the following game:

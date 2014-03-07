@@ -56,3 +56,4 @@ Feature: Adding games
     And I should see "3-7 players"
     And I should see "1 hour 30 minutes playing time"
     And I should see "hand management and deduction"
+    And I should see "Details provided by Board Game Geek"

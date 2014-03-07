@@ -20,3 +20,7 @@
     %br
       - if @game.description
         = @game.description.html_safe
+- if @game.bgg_id
+  .row
+    .small-12.columns
+      Details provided by Board Game Geek
