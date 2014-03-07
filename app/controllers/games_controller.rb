@@ -111,7 +111,8 @@ class GamesController < ApplicationController
   def format_bgg_results bgg_results
     results = []
     bgg_results.each do |bgg_result|
-      results << {name: bgg_result["name"].last["value"], bgg_id: bgg_result["id"]}
+      bgg = BggApi.new
+      results << bgg_to_game(bgg.thing({id: bgg_result["id"]}))
     end
     results
   end
@@ -119,7 +120,13 @@ class GamesController < ApplicationController
   def format_local_results local_results
     results = []
     local_results.each do |local_result|
-      results << {name: local_result.name, game_id: local_result.id}
+      game = {}
+      game[:name] = local_result.name
+      game[:game_id] = local_result.id
+      game[:min_players] = local_result.min_players
+      game[:max_players] = local_result.max_players
+      game[:playing_time] = local_result.playing_time
+      results << game
     end
     results
   end

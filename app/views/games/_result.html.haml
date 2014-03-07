@@ -1,5 +1,9 @@
-%li.result
-  - if result[:bgg_id]
-    = link_to result[:name], game_path(result[:bgg_id], format: :bgg)
-  - else
-    = link_to result[:name], game_path(result[:game_id])
+%tr.result
+  %td
+    - if result[:bgg_id]
+      = link_to result[:name], game_path(result[:bgg_id], format: :bgg)
+    - else
+      = link_to result[:name], game_path(result[:game_id])
+  %td= result[:min_players]
+  %td= result[:max_players]
+  %td= result[:playing_time]

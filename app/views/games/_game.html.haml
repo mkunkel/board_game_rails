@@ -1,2 +1,5 @@
-%li.library-game
-  = link_to game.name, game_path(game.id)
+%tr.library-game
+  %td= link_to game.name, game_path(game.id)
+  %td= game.min_players
+  %td= game.max_players
+  %td= game.playing_time

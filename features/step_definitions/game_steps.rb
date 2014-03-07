@@ -34,7 +34,7 @@ Then(/^"(.*?)" should be the same Game$/) do |arg1|
 end
 
 Then(/^I should see "(.*?)" results$/) do |arg1|
-  page.should have_css("li.result", count: arg1)
+  page.should have_css("tr.result", count: arg1)
 end
 
 When(/^I search for "(.*?)"$/) do |arg1|

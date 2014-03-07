@@ -16,17 +16,24 @@
       %h3 Game Results
       .row
         .small-12.columns
-          %ul
-            - unless @results.empty?
-              - @results.each do |result|
-                = render partial: "games/result", locals: {result: result}
-            - else
-              No results found
+          - unless @results.empty?
+            %table.results
+              %thead
+                %tr
+                  %th Name
+                  %th Minimum Players
+                  %th Maximum Players
+                  %th Playing Time
+              %tbody
+                - @results.each do |result|
+                  = render partial: "games/result", locals: {result: result}
+          - else
+            No results found
 
       .row
-        .small-2.columns
+        .small-4.columns
           %sub "Results provided by Board Game Geek"
-        .small-2.columns.small-offset-6
+        .small-4.columns.small-offset-4
           = link_to "Search again?", games_search_path
-        .small-2.columns
+
           = link_to "Didn't find your game?", new_game_path

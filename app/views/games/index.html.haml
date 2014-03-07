@@ -1,6 +1,14 @@
 .row
   .small-12.columns
     %h3 My Games
-    %ul.small-block-grid-3#library
-      - @games.each do |game|
-        = render game
+    %table.results
+      %thead
+        %tr
+          %th Name
+          %th Minimum Players
+          %th Maximum Players
+          %th Playing Time
+      %tbody
+        - unless @games.empty?
+          - @games.each do |game|
+            = render game
