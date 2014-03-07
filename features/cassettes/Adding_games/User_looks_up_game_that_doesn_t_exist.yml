@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.boardgamegeek.com/xmlapi2/search?query=rewrasdw&type=boardgame
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.0.15
+      Date:
+      - Thu, 06 Mar 2014 20:50:34 GMT
+      Content-Type:
+      - text/xml; charset="UTF-8"
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/5.3.3
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      Vary:
+      - Accept-Encoding,User-Agent
+      Content-Length:
+      - '120'
+      Set-Cookie:
+      - Coyote-2-48e91082=48e910d7:3; path=/
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?><items total=\"0\" termsofuse=\"http://boardgamegeek.com/xmlapi/termsofuse\">\t</items>"
+    http_version: 
+  recorded_at: Thu, 06 Mar 2014 20:50:34 GMT
+recorded_with: VCR 2.8.0
