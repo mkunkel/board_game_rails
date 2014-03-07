@@ -46,11 +46,13 @@ Feature: Adding games
     And I press "Submit"
     Then I should see "Game Results"
     And I click "Shadows over Camelot"
+    And the URL should contain ".bgg"
     And I click "Add To My Collection"
     When I go to the homepage
     Then I should see "Shadows over Camelot"
     When I click "Shadows over Camelot"
     Then I should see "Shadows over Camelot"
+    And the URL should not contain ".bgg"
     And I should see "3-7 players"
     And I should see "1 hour 30 minutes playing time"
     And I should see "hand management and deduction"

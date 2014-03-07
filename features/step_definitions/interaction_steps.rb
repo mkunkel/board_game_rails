@@ -109,3 +109,11 @@ end
 Then(/^"(.*?)" should be required$/) do |arg1|
   page.find_field("#{arg1}")["required"].should == "required"
 end
+
+Then(/^the URL should contain "(.*?)"$/) do |arg1|
+  expect(URI.parse(current_url).to_s.include?(arg1)).to be_true
+end
+
+Then(/^the URL should not contain "(.*?)"$/) do |arg1|
+  expect(URI.parse(current_url).to_s.include?(arg1)).not_to be_true
+end
