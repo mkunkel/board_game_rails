@@ -61,3 +61,7 @@ Feature: playing games
     Then I should see "My Game Plays"
     And I should see "game2"
     And I should see "3"
+
+  Scenario: User views my plays with no plays
+    When I click "My Plays"
+    Then I should see "No plays found"

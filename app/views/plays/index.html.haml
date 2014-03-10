@@ -2,15 +2,18 @@
   .small-12.columns
     - if current_user
       %h3 My Game Plays
-      %table.plays
-      %thead
-        %tr
-          %th Date
-          %th Name
-          %th Number of Players
-      %tbody
-        - @plays.each do |play|
-          = render play
+      - unless @plays.empty?
+        %table.plays
+        %thead
+          %tr
+            %th Date
+            %th Name
+            %th Number of Players
+        %tbody
+          - @plays.each do |play|
+            = render play
+      - else
+        No plays found
     - else
       %h3 Recently Played Games
       %ul.small-block-grid-3
