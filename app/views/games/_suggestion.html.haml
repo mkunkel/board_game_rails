@@ -1,5 +1,5 @@
-%li.suggestion
-  - if suggestion[:bgg_id]
-    = link_to suggestion[:name], game_path(suggestion[:bgg_id], format: :bgg)
-  - else
-    = link_to suggestion[:name], game_path(suggestion[:id])
+%tr.suggestion
+  %td= link_to suggestion.name, game_path(suggestion.id)
+  %td= suggestion.min_players
+  %td= suggestion.max_players
+  %td= suggestion.playing_time

@@ -4,9 +4,16 @@
 .row
   .small-12.columns
     - unless @suggestions.empty?
-      %ul
-        - @suggestions.each do |suggestion|
-          -# = suggestion
-          = render partial: "games/suggestion", locals: {suggestion: suggestion}
+      %table.results
+        %thead
+          %tr
+            %th Name
+            %th Minimum Players
+            %th Maximum Players
+            %th Playing Time (minutes)
+        %tbody
+          - @suggestions.each do |suggestion|
+            = render partial: "games/suggestion", locals: {suggestion: suggestion}
+      = paginate @suggestions
     - else
       No games found

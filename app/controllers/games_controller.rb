@@ -60,6 +60,7 @@ class GamesController < ApplicationController
       word = number_of_players == 1 ? "#player" : "players"
       @for_string = "#{number_of_players.to_s} #{word}"
       @suggestions = Game.by_number_of_players(number_of_players)
+      @suggestions = @suggestions.page(params[:page])
     when "Suggest for these players"
       names = params[:game][:players].split(",").map{|x| x.strip}
       players = names_to_players(names)
@@ -71,9 +72,9 @@ class GamesController < ApplicationController
       else
         @suggestions = Game.by_number_of_players(players.count + user).played_by_players(players)
       end
-      # binding.pry
+      @suggestions = Kaminari.paginate_array(@suggestions).page(params[:page])
     end
-      render "/games/suggestions" unless params[:commit].nil?
+    render "/games/suggestions" unless params[:commit].nil?
   end
 
   private
