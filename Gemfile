@@ -11,6 +11,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'kaminari'
 gem 'devise'
 gem 'rails_12factor', group: :production
 gem 'simple_form'

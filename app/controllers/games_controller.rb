@@ -38,7 +38,8 @@ class GamesController < ApplicationController
       bgg = BggApi.new
       bgg_results = bgg.search({query: params[:name], type: 'boardgame'})["item"]
       local_results = Game.where("name like ?", "%#{params[:name]}%")
-      @results = format_results bgg_results, local_results
+      @results = format_results(bgg_results, local_results)
+      @results = Kaminari.paginate_array(@results).page(params[:page])
     end
   end
 
@@ -111,8 +112,10 @@ class GamesController < ApplicationController
   def format_bgg_results bgg_results
     results = []
     bgg_results.each do |bgg_result|
-      bgg = BggApi.new
-      results << bgg_to_game(bgg.thing({id: bgg_result["id"]}))
+      game = {}
+      game[:name] = bgg_result["name"].first["value"]
+      game[:bgg_id] = bgg_result["id"]
+      results << game
     end
     results
   end

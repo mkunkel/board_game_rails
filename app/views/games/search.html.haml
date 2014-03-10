@@ -21,12 +21,10 @@
               %thead
                 %tr
                   %th Name
-                  %th Minimum Players
-                  %th Maximum Players
-                  %th Playing Time
               %tbody
                 - @results.each do |result|
                   = render partial: "games/result", locals: {result: result}
+            = paginate @results
           - else
             No results found
 
