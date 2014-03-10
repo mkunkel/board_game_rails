@@ -4,14 +4,15 @@
       %h3 My Game Plays
       - unless @plays.empty?
         %table.plays
-        %thead
-          %tr
-            %th Date
-            %th Name
-            %th Number of Players
-        %tbody
-          - @plays.each do |play|
-            = render play
+          %thead
+            %tr
+              %th Date
+              %th Name
+              %th Number of Players
+          %tbody
+            - @plays.each do |play|
+              = render play
+        = paginate @plays
       - else
         No plays found
     - else

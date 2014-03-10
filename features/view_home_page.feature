@@ -2,7 +2,7 @@ Feature: Home Page
 
 
   Scenario: User views the home page without signing in
-    Given a set of 6 plays
+    Given a set of 7 plays
     When I go to the homepage
     Then I should see "Sign In"
     And I should see "Sign Up"

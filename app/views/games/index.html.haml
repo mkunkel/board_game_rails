@@ -12,3 +12,4 @@
         - unless @games.empty?
           - @games.each do |game|
             = render game
+    = paginate @games

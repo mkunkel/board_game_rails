@@ -19,9 +19,9 @@ class PlaysController < ApplicationController
 
   def index
     if current_user
-      @plays = current_user.player.plays
+      @plays = current_user.player.plays.page(params[:page])
     else
-      @plays = Play.all
+      @plays = Play.last(6)
     end
   end
 

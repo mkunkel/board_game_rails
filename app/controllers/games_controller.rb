@@ -24,7 +24,7 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = current_user.games.to_a unless current_user.games.nil?
+    @games = current_user.games.page(params[:game]) unless current_user.games.nil?
   end
 
   def remove
