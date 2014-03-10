@@ -1,9 +1,9 @@
 class PlaysController < ApplicationController
 
   def create
-    play = Play.create(game_id: params[:game_id])
     player_names = params[:players].split(",")
     player_names << params[:include_me] if params[:include_me]
+    play = Play.create(game_id: params[:game_id], number: player_names.count)
     players = player_names_to_players player_names
     players.each do |player|
       play.players << player
@@ -18,7 +18,11 @@ class PlaysController < ApplicationController
 
 
   def index
-    @plays = Play.all
+    if current_user
+      @plays = current_user.player.plays
+    else
+      @plays = Play.all
+    end
   end
 
   def new

@@ -18,6 +18,9 @@
         %li.divider
         %li.active
           = link_to "Suggest Game", suggest_game_path
+        %li.divider
+        %li.active
+          = link_to "My Plays", plays_path
     %ul.right
       - if current_user
         %li{:class => 'has_form'}

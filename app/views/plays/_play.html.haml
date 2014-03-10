@@ -1,2 +1,4 @@
-%li.game-play
-  = play.game.name
+%tr.play
+  %td= play.created_at
+  %td= link_to play.game.name, game_path(play.game.id)
+  %td= play.number

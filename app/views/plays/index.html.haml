@@ -1,6 +1,18 @@
 .row
   .small-12.columns
-    %h3 Recently Played Games
-    %ul.small-block-grid-3
-      - @plays.each do |play|
-        = render play
+    - if current_user
+      %h3 My Game Plays
+      %table.plays
+      %thead
+        %tr
+          %th Date
+          %th Name
+          %th Number of Players
+      %tbody
+        - @plays.each do |play|
+          = render play
+    - else
+      %h3 Recently Played Games
+      %ul.small-block-grid-3
+        - @plays.each do |play|
+          = render partial: "plays/play_thumb", locals: {play: play}

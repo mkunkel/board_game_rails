@@ -44,3 +44,20 @@ Feature: playing games
     When I click "Sign Out"
     Then I should see "Recently Played Games"
     And I should see "game1"
+
+  Scenario: User submits a game they are a part of and views my plays
+    When I click "game1"
+    And I click "Play This Game"
+    And I fill in "John Doe, Jane Doe, Shigeru Miyamoto" for "Players (separated by commas)"
+    And I check "Include me in this game"
+    And I press "Submit"
+    And I go to the homepage
+    And I click "game2"
+    And I click "Play This Game"
+    And I fill in "John Doe, Shigeru Miyamoto" for "Players (separated by commas)"
+    And I check "Include me in this game"
+    And I press "Submit"
+    When I click "My Plays"
+    Then I should see "My Game Plays"
+    And I should see "game2"
+    And I should see "3"
