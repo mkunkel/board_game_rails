@@ -1,4 +1,4 @@
-{"termsofuse"=>"http://boardgamegeek.com/xmlapi/termsofuse",
+  {"termsofuse"=>"http://boardgamegeek.com/xmlapi/termsofuse",
  "item"=>
   [{"type"=>"boardgame",
     "id"=>"15062",

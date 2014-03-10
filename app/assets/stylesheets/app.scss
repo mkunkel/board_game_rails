@@ -22,3 +22,19 @@ nav.top-bar {
 table.results {
   width: 100%
 }
+
+.r-align {
+  text-align: right;
+}
+
+.centered {
+  width: auto;
+  text-align: center;
+  margin: 0 auto;
+}
+
+ul.pagination {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
