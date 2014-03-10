@@ -1,4 +1,4 @@
 %tr.play
-  %td= play.created_at
+  %td= play.created_at.strftime("%m/%d/%Y")
   %td= link_to play.game.name, game_path(play.game.id)
   %td= play.number

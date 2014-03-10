@@ -14,3 +14,7 @@ form .row .row.collapse input.round {
   -webkit-border-bottom-right-radius: $global-rounded;
   -webkit-border-top-right-radius: $global-rounded;
 }
+
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+  background-color: #666;
+}
