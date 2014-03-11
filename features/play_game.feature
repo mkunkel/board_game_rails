@@ -65,3 +65,16 @@ Feature: playing games
   Scenario: User views my plays with no plays
     When I click "My Plays"
     Then I should see "No plays found"
+
+  @javascript
+  Scenario: User submits a game they are a part of with js
+    When I click "game1"
+    And I click "Play This Game"
+    And I fill in "John Doe, Jane Doe, Shigeru Miyamoto" for "Players (separated by commas)"
+    And I check "Include me in this game"
+    And I press "Submit"
+    Then I should see 1 play in the database
+    And I should see 4 players_plays in the database
+    When I click "Sign Out"
+    Then I should see "Recently Played Games"
+    And I should see "game1"
