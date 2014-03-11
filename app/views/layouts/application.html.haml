@@ -1,6 +1,8 @@
 !!!
 %html
   = render "layouts/head"
-  %body
+  %body{class: params[:controller]}
     = render "layouts/body"
     = yield
+    :javascript
+      $(document).foundation();
