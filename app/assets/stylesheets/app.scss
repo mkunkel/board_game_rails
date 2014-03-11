@@ -9,6 +9,9 @@ nav.top-bar {
   border-radius: $global-radius;
   padding-left: 8px;
   padding-right: 8px;
+  input, label {
+    display: inline;
+  }
 }
 
 #title {
@@ -37,4 +40,11 @@ ul.pagination {
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
+}
+
+input.disabled-field[readonly=readonly], input.disabled-field[disabled="disabled"]:focus {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 0px;
 }

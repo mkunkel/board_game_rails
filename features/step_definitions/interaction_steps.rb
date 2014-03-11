@@ -122,6 +122,6 @@ Then(/^"(.*?)" should be empty$/) do |arg1|
   page.field_labeled("#{arg1}").value.should be_empty
 end
 
-Then(/^"(.*?)" should contain "(.*?)"$/) do |field, content|
-  page.field_labeled("#{field}").value.should have_content(content)
+Then(/^Players should contain "(.*?)"$/) do |content|
+  page.find_by_id("players").value.should have_content(content)
 end

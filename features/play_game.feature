@@ -75,7 +75,7 @@ Feature: playing games
     Then "Player to add" should be empty
     When I fill in "Jane Doe" for "Player to add"
     And I press "Add Player"
-    Then "Players" should contain "John Doe, Jane Doe"
+    Then Players should contain "John Doe, Jane Doe"
     When I fill in "Shigeru Miyamoto" for "Player to add"
     And I press "Add Player"
     And I check "Include me in this game"
