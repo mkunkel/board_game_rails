@@ -117,3 +117,11 @@ end
 Then(/^the URL should not contain "(.*?)"$/) do |arg1|
   expect(URI.parse(current_url).to_s.include?(arg1)).not_to be_true
 end
+
+Then(/^"(.*?)" should be empty$/) do |arg1|
+  page.field_labeled("#{arg1}").value.should be_empty
+end
+
+Then(/^"(.*?)" should contain "(.*?)"$/) do |field, content|
+  page.field_labeled("#{field}").value.should have_content(content)
+end

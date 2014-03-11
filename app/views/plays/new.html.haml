@@ -1,12 +1,12 @@
 .row
-  .small-12.columns
+  .small-12.columns#play-form-container
     %h3 New Game Play
-    = form_tag plays_path, method: :post
+    = form_tag plays_path, method: :post, id: "new-play-form"
     .row
       .section
         .small-10.columns
-          = label_tag :players, "Players (separated by commas)"
-          = text_field_tag :players, nil
+          = label_tag :players, "Players (separated by commas)", id: "players-label"
+          = text_field_tag :players, nil, id: "players"
           = label_tag :include_me, "Include me in this game"
           = check_box_tag :include_me, @player_name, true
           = hidden_field_tag :game_id, @game_id

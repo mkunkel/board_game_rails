@@ -71,13 +71,13 @@ Feature: playing games
     When I click "game1"
     And I click "Play This Game"
     And I fill in "John Doe" for "Player to add"
-    And I click "Add Player"
+    And I press "Add Player"
     Then "Player to add" should be empty
     When I fill in "Jane Doe" for "Player to add"
-    And I click "Add Player"
-    Then I should see "John Doe, Jane Doe"
+    And I press "Add Player"
+    Then "Players" should contain "John Doe, Jane Doe"
     When I fill in "Shigeru Miyamoto" for "Player to add"
-    And I click "Add Player"
+    And I press "Add Player"
     And I check "Include me in this game"
     And I press "Submit"
     Then I should see 1 play in the database
