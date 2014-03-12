@@ -80,17 +80,18 @@ class GamesController < ApplicationController
   private
 
   def bgg_to_game bgg
-    game = Game.new
     bgg = bgg["item"].first
-    game.bgg_id = bgg["id"]
-    game.name = bgg["name"].select{|x| x if x["type"] == "primary"}.first["value"]
-    game.min_players = bgg["minplayers"].first["value"]
-    game.max_players = bgg["maxplayers"].first["value"]
-    game.playing_time = bgg["playingtime"].first["value"]
-    game.description = bgg["description"].first.gsub(/&#10;/, "<br />").gsub(/&#13;/, "<br />")
-    game.thumbnail = bgg["thumbnail"].first unless bgg["thumbnail"].nil?
-    game.image = bgg["image"].first unless bgg["image"].nil?
-    game
+    name = bgg["name"].select{|x| x if x["type"] == "primary"}.first["value"]
+    Game.find_or_create_by(name: name) do |game|
+      game.bgg_id = bgg["id"]
+      game.name = name
+      game.min_players = bgg["minplayers"].first["value"]
+      game.max_players = bgg["maxplayers"].first["value"]
+      game.playing_time = bgg["playingtime"].first["value"]
+      game.description = bgg["description"].first.gsub(/&#10;/, "<br />").gsub(/&#13;/, "<br />")
+      game.thumbnail = bgg["thumbnail"].first unless bgg["thumbnail"].nil?
+      game.image = bgg["image"].first unless bgg["image"].nil?
+    end
   end
 
   def create_game params

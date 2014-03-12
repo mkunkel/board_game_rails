@@ -11,7 +11,7 @@ BoardGameRails::Application.routes.draw do
   get 'users/:id' => 'users#show', :as => :user
   # get 'plays/' => 'plays#index', :as => :plays
   get 'games/search' => 'games#search', :as => :games_search
-  get 'games/:id/add' => 'games#add', :as => :add_game
+  get 'games/:id(.:format)/add' => 'games#add', :as => :add_game
   get 'games/:id/remove' => 'games#remove', :as => :remove_game
   match 'games/suggest' => 'games#suggest', :via => [:get, :post], :as => :suggest_game
   resources :plays, except: [:new, :destroy, :show]

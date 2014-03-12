@@ -1,6 +1,7 @@
 %tr.result
   %td
-    - if result[:bgg_id]
-      = link_to result[:name], game_path(result[:bgg_id], format: :bgg)
-    - else
+    - if result[:game_id]
       = link_to result[:name], game_path(result[:game_id])
+    - else
+      = link_to result[:name], game_path(result[:bgg_id], format: :bgg)
+    = result
