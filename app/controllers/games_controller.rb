@@ -7,7 +7,6 @@ class GamesController < ApplicationController
     else
       game = Game.find(params[:id])
     end
-    game.save
     if current_user.games << game
       redirect_to games_path
     else
