@@ -8,13 +8,13 @@
       %li= play_time_to_string @game.playing_time
   .small-3.columns
     - if current_user.games.include?(@game)
-      = link_to "Remove From My Collection", remove_game_path(@game.id), class: "tiny button alert"
-      = link_to "Play This Game", new_play_path(@game.id), class: "tiny button"
+      = link_to "Remove From My Collection", remove_game_path(@game.id), class: "tiny button alert expand"
+      = link_to "Play This Game", new_play_path(@game.id), class: "tiny button expand"
     - else
       - if @game.id
-        = link_to "Add To My Collection", add_game_path(@game.id), class: "tiny button success"
+        = link_to "Add To My Collection", add_game_path(@game.id), class: "tiny button success expand"
       - else
-        = link_to "Add To My Collection", add_game_path(@game.bgg_id, format: :bgg), class: "tiny button success"
+        = link_to "Add To My Collection", add_game_path(@game.bgg_id, format: :bgg), class: "tiny button success expand"
 .row
   .small-12.columns
     %br
