@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/mkunkel/board_game_rails.png)](https://travis-ci.org/mkunkel/board_game_rails)
 ***
 # Board Game Tracker - Rails
 ***
