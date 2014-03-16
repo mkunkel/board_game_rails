@@ -29,9 +29,8 @@ Feature: playing games
     And I press "Submit"
     Then I should see 1 play in the database
     And I should see 3 players_plays in the database
-    When I click "Sign Out"
-    Then I should see "Recently Played Games"
-    And I should see "game1"
+    When I click "My Plays"
+    Then I should not see "game1"
 
   Scenario: User submits a game they are a part of
     When I click "game1"
@@ -41,9 +40,8 @@ Feature: playing games
     And I press "Submit"
     Then I should see 1 play in the database
     And I should see 4 players_plays in the database
-    When I click "Sign Out"
-    Then I should see "Recently Played Games"
-    And I should see "game1"
+    When I click "My Plays"
+    Then I should see "game1"
 
   Scenario: User submits a game they are a part of and views my plays
     When I click "game1"
