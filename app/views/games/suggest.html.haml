@@ -8,7 +8,7 @@
       = simple_form_for :game, url: :suggest_game, action: :post do |f|
         .row
           .small-12.columns
-            = f.input :number_of_players, collection: 0..59, label: "How many players?"
+            = f.input :number_of_players, collection: 1..99, label: "How many players?"
             = f.submit "Suggest for this number", class: "button tiny radius"
   .small-8.columns
     .section
