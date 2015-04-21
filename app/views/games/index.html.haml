@@ -1,4 +1,13 @@
 .row
+  = form_tag :collection_search, method: :get
+  .small-2.columns
+    = label_tag :name, "Search by name"
+  .small-8.columns
+    = text_field_tag :name, nil, required: true, autofocus: true
+  .small-2.columns
+    = submit_tag("Search", class: "button postfix radius")
+
+.row
   .small-12.columns
     %h3 My Games
     %table.results
@@ -12,4 +21,4 @@
         - unless @games.empty?
           - @games.each do |game|
             = render game
-    = paginate @games
+    = paginate @games unless @games.length < 10

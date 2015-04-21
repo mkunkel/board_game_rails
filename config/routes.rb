@@ -16,6 +16,7 @@ BoardGameRails::Application.routes.draw do
   match 'games/suggest' => 'games#suggest', :via => [:get, :post], :as => :suggest_game
   resources :plays, except: [:new, :destroy, :show]
   get 'plays/:id' => 'plays#new', :as => :new_play
+  get 'collection/search/' => 'games#search_collection', :as => :collection_search
   # get 'plays/:id' => 'plays#new', :as => :new_play
   resources :games
   # get 'games/' => 'games#index', :as => :games

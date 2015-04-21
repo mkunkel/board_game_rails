@@ -49,3 +49,8 @@ Given(/^"(.*?)" has played "(.*?)"$/) do |player_name, game_name|
   player = Player.find_or_create_by(name: player_name)
   player.plays << Play.create(game_id: Game.where(name: game_name).first.id)
 end
+
+Given(/^"(.*?)" is in the collection of "(.*?)"$/) do |game, player|
+  player = User.find_or_create_by(email: player)
+  player.games << Game.find_or_create_by(name: game)
+end

@@ -41,6 +41,12 @@ class GamesController < ApplicationController
     end
   end
 
+  def search_collection
+    search_term = params['name'].downcase
+    @games = current_user.games.select { |game| game.name.downcase.include?(search_term) }
+    render :index
+  end
+
   def show
     if params[:format] == 'bgg'
       bgg = BggApi.new
