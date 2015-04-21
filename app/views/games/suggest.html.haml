@@ -18,5 +18,5 @@
           .small-12.columns
             = f.input :players, label: "Players (separated by commas)"
             = f.input :include_me, as: :boolean, label: "Include me in this game", input_html: {checked: true}
-            = f.input :played, as: :radio_buttons, collection: ["Show only games that are new to these people", "Show only games these people know"], checked: "Show only games that are new to these people", label: false
+            = f.input :played, as: :radio_buttons, collection: ["Show only games that are new to these people", "Show only games these people have played"], checked: "Show only games that are new to these people", label: false
             = f.submit "Suggest for these players", class: "button tiny radius"
