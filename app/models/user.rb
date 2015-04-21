@@ -10,12 +10,12 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :games
 
   def self.find_for_database_authentication(conditions)
-    self.where(:username => conditions[:email]).first || self.where(:email => conditions[:email]).first
+    where(username: conditions[:email]).first || where(email: conditions[:email]).first
   end
 
   def create_player
-    player = Player.create(name:self.username)
+    player = Player.create(name: username)
     self.player_id = player.id
-    self.save
+    save
   end
 end

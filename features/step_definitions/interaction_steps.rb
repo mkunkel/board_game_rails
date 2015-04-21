@@ -1,5 +1,5 @@
 require 'pry'
-And("show me the page") do
+And('show me the page') do
   save_and_open_page
 end
 
@@ -21,7 +21,7 @@ Then(/^I should be on (.*?)'s profile page$/) do |username|
 end
 
 When(/^I go to (.*?)'s profile page$/) do |name|
-  user = User.where(username: name ).first
+  user = User.where(username: name).first
   visit user_path(user)
 end
 
@@ -54,7 +54,7 @@ When(/^I fill in "(.*?)" with "(.*?)"$/) do |field, content|
 end
 
 When (/^I upload a file "(.*?)"$/) do |file|
-  attach_file("squeek_image", File.join(Rails.root, "/features/support/files/#{file}"))
+  attach_file('squeek_image', File.join(Rails.root, "/features/support/files/#{file}"))
 end
 
 When (/^I upload a file with an invalid extension$/) do
@@ -66,7 +66,7 @@ Then(/^I should see a "(.*?)" button$/) do |arg1|
 end
 
 Given(/^I'm signed in as "(.*?)"$/) do |arg1|
-  steps %{
+  steps %(
     Given the following user:
       | username              | #{arg1.split('@').first} |
       | email                 | #{arg1}                  |
@@ -75,7 +75,7 @@ Given(/^I'm signed in as "(.*?)"$/) do |arg1|
     And I fill in "#{arg1}" for "Email / Username"
     And I fill in "password" for "Password"
     And I press "Sign in"
-  }
+    )
 end
 
 Then(/^"(.*?)" should have a player id$/) do |user_name|
@@ -107,7 +107,7 @@ When(/^I choose "(.*?)"$/) do |arg1|
 end
 
 Then(/^"(.*?)" should be required$/) do |arg1|
-  page.find_field("#{arg1}")["required"].should == "required"
+  page.find_field("#{arg1}")['required'].should == 'required'
 end
 
 Then(/^the URL should contain "(.*?)"$/) do |arg1|
@@ -123,5 +123,5 @@ Then(/^"(.*?)" should be empty$/) do |arg1|
 end
 
 Then(/^Players should contain "(.*?)"$/) do |content|
-  page.find_by_id("players").value.should have_content(content)
+  page.find_by_id('players').value.should have_content(content)
 end

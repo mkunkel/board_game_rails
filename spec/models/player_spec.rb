@@ -1,7 +1,6 @@
 require 'spec_helper'
 describe Player do
   before(:each) do
-
   end
 
   context 'attributes' do
@@ -13,12 +12,10 @@ describe Player do
   end
 
   context 'class methods' do
-
   end
 
   context 'instance methods' do
     describe 'valid?' do
-
     end
   end
 

@@ -25,14 +25,13 @@ end
 group :test, :development do
   gem 'cucumber-rails', require: false
   gem 'poltergeist'
-  gem "database_cleaner", git: 'https://github.com/bmabey/database_cleaner.git'
+  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
   gem 'fabrication'
   gem 'pry'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'nyan-cat-formatter'
   gem 'letter_opener'
-
 end
 
 group :test do

@@ -1,11 +1,13 @@
 require 'spec_helper'
 require 'pry'
 describe Game do
-  let(:game) {Game.new({:name => "Shadows Over Camelot",
-                        :min_players => 2,
-                        :max_players => 7,
-                        :playing_time => 45,
-                        :description => "Description of game"})}
+  let(:game) do
+    Game.new(name: 'Shadows Over Camelot',
+             min_players: 2,
+             max_players: 7,
+             playing_time: 45,
+             description: 'Description of game')
+  end
 
   context 'attributes' do
     it { should have_db_column(:name) }
@@ -41,11 +43,11 @@ describe Game do
   context 'class methods' do
     describe '#save' do
       it 'should save a valid game to the database' do
-        game = Game.new({:name => "Shadows Over Camelot",
-                          :min_players => 2,
-                          :max_players => 7,
-                          :playing_time => 45,
-                          :description => "Description of game"})
+        game = Game.new(name: 'Shadows Over Camelot',
+                        min_players: 2,
+                        max_players: 7,
+                        playing_time: 45,
+                        description: 'Description of game')
         game.save
         Game.count.should == 1
       end
@@ -67,8 +69,8 @@ describe Game do
     it 'should validate that min players is less than max players (vice versa)' do
       game.max_players = 1
       game.save
-      expect(game.errors[:max_players]).to include("must be greater than or equal to min players")
-      expect(game.errors[:min_players]).to include("must be less than or equal to max players")
+      expect(game.errors[:max_players]).to include('must be greater than or equal to min players')
+      expect(game.errors[:min_players]).to include('must be less than or equal to max players')
     end
   end
 end

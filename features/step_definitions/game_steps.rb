@@ -18,13 +18,13 @@ end
 
 Given(/^a set of (\d+) games in collection$/) do |num|
   num.to_i.times do |i|
-    game = Fabricate(:game, name: "game#{i+1}")
+    game = Fabricate(:game, name: "game#{i + 1}")
     Fabricate(:games_user, game: game)
   end
 end
 
 Then(/^I should see (\d+) plays$/) do |num|
-  page.should have_css(".game-play", count: num)
+  page.should have_css('.game-play', count: num)
 end
 
 Then(/^"(.*?)" should be the same Game$/) do |arg1|
@@ -34,15 +34,15 @@ Then(/^"(.*?)" should be the same Game$/) do |arg1|
 end
 
 Then(/^I should see "(.*?)" results$/) do |arg1|
-  page.should have_css("tr.result", count: arg1)
+  page.should have_css('tr.result', count: arg1)
 end
 
 When(/^I search for "(.*?)"$/) do |arg1|
-  steps %{
+  steps %(
     Then I click "Add Game"
     And I fill in "#{arg1}" for "Search by Name"
     And I press "Submit"
-  }
+    )
 end
 
 Given(/^"(.*?)" has played "(.*?)"$/) do |player_name, game_name|

@@ -1,7 +1,6 @@
 class PlaysController < ApplicationController
-
   def create
-    player_names = params[:players].split(",")
+    player_names = params[:players].split(',')
     player_names << params[:include_me] if params[:include_me]
     play = Play.create(game_id: params[:game_id], number: player_names.count)
     players = player_names_to_players player_names
@@ -11,11 +10,9 @@ class PlaysController < ApplicationController
     redirect_to root_path
   end
 
- # "players"=>"John Doe, Jane Doe, Shigeru Miyamoto",
- # "include_me"=>"joe",
- # "game_id"=>"85",
-
-
+  # "players"=>"John Doe, Jane Doe, Shigeru Miyamoto",
+  # "include_me"=>"joe",
+  # "game_id"=>"85",
 
   def index
     if current_user
@@ -32,8 +29,7 @@ class PlaysController < ApplicationController
 
   private
 
-  def player_names_to_players player_names
-    player_names.map {|player_name| Player.find_or_create_by(name: player_name.strip)}
+  def player_names_to_players(player_names)
+    player_names.map { |player_name| Player.find_or_create_by(name: player_name.strip) }
   end
-
 end

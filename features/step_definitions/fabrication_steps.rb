@@ -7,7 +7,7 @@ def with_ivars(fabricator)
   model = @they.last.class.to_s.underscore
   instance_variable_set("@#{model.pluralize}", @they)
   instance_variable_set("@#{model.singularize}", @they.last)
-  Fabrication::Cucumber::Fabrications[model.singularize.gsub(/\W+/,'_').downcase] = @they.last
+  Fabrication::Cucumber::Fabrications[model.singularize.gsub(/\W+/, '_').downcase] = @they.last
 end
 
 Given /^(\d+) ([^"]*)$/ do |count, model_name|
@@ -23,13 +23,13 @@ Given /^the following ([^"]*):$/ do |model_name, table|
 end
 
 Given /^that ([^"]*) has the following ([^"]*):$/ do |parent, child, table|
-  with_ivars Fabrication::Cucumber::StepFabricator.new(child, :parent => parent) do |fab|
+  with_ivars Fabrication::Cucumber::StepFabricator.new(child, parent: parent) do |fab|
     fab.from_table(table)
   end
 end
 
 Given /^that ([^"]*) has (\d+) ([^"]*)$/ do |parent, count, child|
-  with_ivars Fabrication::Cucumber::StepFabricator.new(child, :parent => parent) do |fab|
+  with_ivars Fabrication::Cucumber::StepFabricator.new(child, parent: parent) do |fab|
     fab.n(count.to_i)
   end
 end
