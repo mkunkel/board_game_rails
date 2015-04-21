@@ -48,3 +48,8 @@ input.disabled-field[readonly=readonly], input.disabled-field[disabled="disabled
   box-shadow: none;
   border: 0px;
 }
+
+.radio:after {
+    content: '\A';
+    white-space: pre;
+}
